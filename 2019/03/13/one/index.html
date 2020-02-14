@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-使用hexo和git搭建blog" class="article article-type-post" itemscope
+  <article id="post-one" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -48,7 +48,7 @@
 
     
     <div class="article-meta">
-      <a href="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/" class="article-date">
+      <a href="/2019/03/13/one/" class="article-date">
   <time datetime="2019-03-13T02:52:44.000Z" itemprop="datePublished">2019-03-13</time>
 </a>
       
@@ -127,32 +127,32 @@
 </blockquote>
 <h3 id="二、开始搭建博客"><a href="#二、开始搭建博客" class="headerlink" title="二、开始搭建博客"></a>二、开始搭建博客</h3><h4 id="1-开启-GitHub-服务"><a href="#1-开启-GitHub-服务" class="headerlink" title="1.开启 GitHub 服务"></a>1.开启 GitHub 服务</h4><blockquote>
 <p>通过 Github Pages 获得一个免费使用的域名，这需要我们在Github上新建一个仓库，如下:</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
 <p>新仓库的名字，最好是 UserName+”github.io“。这也是之前强调的要起一个好的用户名的原因。这样之后我们最后的博客网站的链接就会是: <a href="https://UserName.github.io" target="_blank" rel="noopener">https://UserName.github.io</a> 的形式。</p>
 <!--固定新仓库的名字并非必须，只是这样操作生成的博客域名比较短小简洁，另起它名生成的博客域名会很冗长-->
 
 <p>点击 Create Repository 只后，随后选择Setting 进入设置，找到Github Pages，如下:</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%872.png" alt="图片2"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%872.png" alt="图片2"></p>
 <p>这里我们需要点击Choose a theme 任意选择一个主题，然后界面会跳转到仓库，我们看到两个文件如下:</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%873.png" alt="图片3"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%873.png" alt="图片3"></p>
 <p>再查看 setting，我们会看到开启 Github Pages 之后得到的域名如下:</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%874.png" alt="图片4"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%874.png" alt="图片4"></p>
 <p>现在，可以使用 <a href="https://UserName.github.io" target="_blank" rel="noopener">https://UserName.github.io</a> , 访问我们自己的博客网站了，打开链接我们会看到默认的个人博客央视如下(虽然有点丑):</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%875.png" alt="图片5"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%875.png" alt="图片5"></p>
 </blockquote>
 <h4 id="2-创建本地博客站点"><a href="#2-创建本地博客站点" class="headerlink" title="2.创建本地博客站点"></a>2.创建本地博客站点</h4><blockquote>
 <p>上述的步骤相当于我们使用Github，创建了一个默认的博客页，并且得到了一个可外部访问的域名。但是这个博客页很丑。我们的目的是创建自己个性化的博客网站，所以我们使用Hexo在本地先创建一个本地博客站点，优化后再把它部署到github上。接下来我们使用控制台(<strong><em>cmd</em></strong>)命令在本地一个合适的位置创建博客站点文件夹如下:</p>
 <p><code>hexo init myHexoBlog</code> <!--myHexoBlog是项目名--></p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%876.png" alt="图片6"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%876.png" alt="图片6"></p>
 <p>测试本地博客站点，在<strong><em>本地博客根目录(git bash)</em></strong>下使用控制台命令:</p>
 <p><code>hexo g</code>     <!--g 是generrtor的缩写，生成博客--></p>
 <p><code>hexo s</code>     <!--s 是server的缩写，启动服务--></p>
 <p>此时打开浏览器，输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> , 我们将会看到Hexo自带默认主题显示的博客样式如下:</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%877.png" alt="图片7"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%877.png" alt="图片7"></p>
 </blockquote>
 <h4 id="3-同步-Github-，允许公共访问"><a href="#3-同步-Github-，允许公共访问" class="headerlink" title="3.同步 Github ，允许公共访问"></a>3.同步 Github ，允许公共访问</h4><blockquote>
 <p>初次安装 git 余姚配置用户名和邮箱，否则 git 会提示：please  tell me  who you are.</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%878.png" alt="图片8"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%878.png" alt="图片8"></p>
 <p>你需要运行命令来配置你的用户名和邮箱:</p>
 <p><code>$ git config --global user.name &quot;superGG1990&quot;</code></p>
 <p><code>$ git config --global user.email &quot;superGG1990@163.com&quot;</code></p>
@@ -163,17 +163,17 @@
 <p>检查是否已经有 SSH Key     <code>$ cd ~/.ssh</code>;</p>
 <p>生成 SSH Key     <code>$ ssh-keygen -t rsa -C &quot;youremail&quot;</code>;</p>
 <p>第一次生成的话，直接一路回车，不需要输入密码。不是第一次生成的话，会提示 overwrite (y/n)? 问你是否覆盖旧的 SSH Key ，直接填 y ，然后一直回车就行了，最后得到了两个文件：id_rsa和id_rsa.pub  ;</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%879.png" alt="图片9"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%879.png" alt="图片9"></p>
 <p>记事本打开<strong><em>/C/Users/Administrator/.ssh/下id_rsa.pub文件</em></strong>，复制该段信息；登录github账户，点击头像进入<strong><em>Settings -&gt; SSH and GPG keys -&gt; New SSH key</em></strong>，将复制的信息粘贴到该处。</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8710.png" alt="图片10"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8710.png" alt="图片10"></p>
 <p>测试是否成功   <code>$ssh -T git@github.com</code></p>
 <p>提示“Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access.”说明添加成功。</p>
 </blockquote>
 <h4 id="5-本地同步Github"><a href="#5-本地同步Github" class="headerlink" title="5.本地同步Github"></a>5.本地同步Github</h4><blockquote>
 <p>在本地我们已经搭建了博客，但是还只能自己本地访问。若要别人也能看到，那就需要我们将其同步部署到GitHub上了。首先找到我们的<strong><em>博客仓库</em></strong>，并拷贝仓库地址：</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8711.png" alt="图片11"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8711.png" alt="图片11"></p>
 <p>然后修改本地博客目录的配置：<br>修改本次博客<strong><em>根目录</em></strong>下的<strong><em>_config.yml</em></strong>文件，修改<strong><em>deploy</em></strong>下的配置如下：</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8712.png" alt="图片12"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8712.png" alt="图片12"></p>
 <p>之后执行<strong><em>控制台命令(cmd)</em></strong></p>
 <p><code>npm install hexo-deployer-git</code> <!--安装部署插件--></p>
 <p><code>hexo d</code> <!--部署到github--></p>
@@ -184,7 +184,7 @@
 <p><code>hexo new &quot;我个人博客的第一篇博客&quot;</code>     <!--生成.md文档--></p>
 <p><code>hexo g</code>        <!--生成网页--></p>
 <p><code>hexo d</code>        <!--部署到远端(github)--></p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8713.png" alt="图片13"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8713.png" alt="图片13"></p>
 <p>现在我们打开我们的博客网站:<a href="http://UserName.github.io" target="_blank" rel="noopener">http://UserName.github.io</a> , 会看到网页</p>
 <!--显示可能有延迟，所以才去一下方法(git bash)-->
 
@@ -204,17 +204,17 @@
 <!--下载主题-->
 
 <p>下载成之后我们会看到next的主题已经存在thems里了如下：</p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8714.png" alt="图片14"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8714.png" alt="图片14"></p>
 </blockquote>
 <h4 id="2-修改博客配置文件，更换主题配置"><a href="#2-修改博客配置文件，更换主题配置" class="headerlink" title="2.修改博客配置文件，更换主题配置"></a>2.修改博客配置文件，更换主题配置</h4><blockquote>
 <p>修改<strong><em>博客根目录(不是next主题)</em></strong>下的<strong><em>_config.yml</em></strong>文件，搜索<strong><em>theme</em></strong>字段，并将其值修改为<strong><em>next</em></strong></p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8715.png" alt="图片15"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8715.png" alt="图片15"></p>
 <p>然后在控制台（<strong><em>git bash</em></strong>）下输入如下命令:</p>
 <p><code>hexo clean</code></p>
 <p><code>hexo g</code></p>
 <p><code>hexo d</code></p>
 <p>再次打开我们的博客网站:<a href="http://UserName.github.io，" target="_blank" rel="noopener">http://UserName.github.io，</a></p>
-<p><img src="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/one%5C%E5%9B%BE%E7%89%8716.png" alt="图片16"></p>
+<p><img src="/2019/03/13/one/one%5C%E5%9B%BE%E7%89%8716.png" alt="图片16"></p>
 <p>更多主题美化:</p>
 <p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
 </blockquote>
@@ -287,7 +287,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/03/13/one/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,7 +305,7 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" class="article-nav-link">
+      <a href="/2019/03/27/two/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
