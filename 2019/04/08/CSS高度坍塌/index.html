@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    在Github上部署网页 |  SunのBlog
+    CSS高度坍塌 |  SunのBlog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-在Github上部署网页" class="article article-type-post" itemscope
+  <article id="post-CSS高度坍塌" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  在Github上部署网页
+  CSS高度坍塌
 </h1>
   
 
@@ -48,12 +48,12 @@
 
     
     <div class="article-meta">
-      <a href="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" class="article-date">
-  <time datetime="2019-03-27T12:39:14.000Z" itemprop="datePublished">2019-03-27</time>
+      <a href="/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" class="article-date">
+  <time datetime="2019-04-08T10:26:58.000Z" itemprop="datePublished">2019-04-08</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
+    <a class="article-category-link" href="/categories/css/">css</a>
   </div>
 
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">609字</span>
+            <span class="post-count">935字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -99,77 +99,23 @@
       
 
       
-      <h2 id="如何在Github上部署自己的网页"><a href="#如何在Github上部署自己的网页" class="headerlink" title="如何在Github上部署自己的网页"></a>如何在Github上部署自己的网页</h2><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><blockquote>
-<p>登陆Github账号，然后创建一个远程仓库，这里我们命名为bird，创建完成后复制其ssh的URL备用</p>
+      <h3 id="CSS高度坍塌产生的原因是什么？如何解决？"><a href="#CSS高度坍塌产生的原因是什么？如何解决？" class="headerlink" title="CSS高度坍塌产生的原因是什么？如何解决？"></a>CSS高度坍塌产生的原因是什么？如何解决？</h3><h4 id="一、CSS高度坍塌："><a href="#一、CSS高度坍塌：" class="headerlink" title="一、CSS高度坍塌："></a>一、CSS高度坍塌：</h4><blockquote>
+<p>原因：在文档流中，父元素的高度默认是被子元素撑开的，也就是子元素多高，父元素就多高。但是当为子元素设置浮动以后，子元素会完全脱离文档流，此时将会导致子元素无法撑起父元素的高度，导致父元素的高度塌陷.由于父元素的高度塌陷了，则父元素下的所有元素都会向上移动，这样将会导致页面布局混乱。</p>
 </blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C1.png" alt="1"></p>
+<p>CSS高度坍塌从本质上看，就是浮动的原因。所以要解决CSS高度坍塌问题，就是要清除浮动。</p>
+<p>清除浮动主要是为了解决父级元素因为子元素浮动引起内部高度为0的问题。</p>
 <a id="more"></a>
 
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C2.png" alt="2"></p>
-<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><blockquote>
-<p>进入到bird仓库中，选择“settings”进行仓库设置，滚动到页面底部找到“Github Pages”部分：</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C3.png" alt="3"></p>
-<blockquote>
-<p>点击“Choose a theme”选项：</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C4.png" alt="4"></p>
-<blockquote>
-<p>点击“Select theme”对主题进行选择，完成后一个具备远程访问功能的仓库就已经设置好了，可以通过网址进行访问了。在浏览器中输入网址：<a href="https://rfhzhj.github.io/bird" target="_blank" rel="noopener">https://rfhzhj.github.io/bird</a> , 即可访问到这个仓库的首页：</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C5.png" alt="5"></p>
-<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><blockquote>
-<p>在本地创建映射仓库，我们在本地创建一个文件夹用于承载远程仓库的克隆体（这里我创建了名为zhj的文件夹）。打开<strong><em>Git Bash命令行</em></strong>，定位到zhj文件夹，输入克隆命令（git clone + ssh的url）：</p>
-<p><code>git clone git@github.com:RFHzhj/bird.git</code></p>
-<!--在进行克隆的时候也可以使用https进行克隆，即输入命令（git clone + HTTPS的url）:-->
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C6.png" alt="6"></p>
-<blockquote>
-<p>下面正式进行克隆：</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C7.png" alt="7"></p>
-<blockquote>
-<p>命令执行完成后，本地文件夹zhj目录下就会有一个远程仓库的克隆体，里面有一个固定文件夹.git和其他一些默认文件，就是之前<a href="https://rfhzhj.github.io/bird" target="_blank" rel="noopener">https://rfhzhj.github.io/bird</a> , 访问到的页面。</p>
-</blockquote>
-<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><blockquote>
-<p>打开克隆仓库，删除除了.git以外的其他文件，上传我们自己的文件。我们先完成删除环节，删除完克隆仓库的目标文件之后，在此路径下打开github命令窗口，执行以下命令：</p>
-<!--把本地仓库文件上传到缓存-->
+<h4 id="二、解决方法-清除浮动"><a href="#二、解决方法-清除浮动" class="headerlink" title="二、解决方法(清除浮动)"></a>二、解决方法(清除浮动)</h4><h5 id="1-父级div定义伪类：after，zoom，和befotr"><a href="#1-父级div定义伪类：after，zoom，和befotr" class="headerlink" title="1. 父级div定义伪类：after，zoom，和befotr"></a>1. 父级div定义伪类：after，zoom，和befotr</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;</span><br><span class="line">	display:block;</span><br><span class="line">	clear:both;</span><br><span class="line">	content:"";</span><br><span class="line">	visibility:hidden;</span><br><span class="line">	height:0</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">	zoom:1</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">原理：IE8以上和非IE浏览器才支持:after，zoom(IE转有属性)可解决ie6,ie7浮动问题。</span><br><span class="line">优点：浏览器支持好，不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）。</span><br><span class="line">缺点：代码多，要两句代码结合使用，才能让主流浏览器都支持</span><br><span class="line">建议：推荐使用，建议定义公共类，以减少CSS代码</span><br><span class="line">在大型项目中，我会使用 clearfix 方法，在需要的地方使用.clearfix</span><br></pre></td></tr></table></figure>
 
-<p><code>$ git add *</code>    </p>
-<!--//把第一步上传到缓存的东西上传到本地仓库，其中'del'是操作标识，内容随便填，方便用户观看。-->
+<h5 id="2-父级div定义height"><a href="#2-父级div定义height" class="headerlink" title="2.父级div定义height"></a>2.父级div定义height</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">原理：父级div手动定义height，就解决了父级div无法自动获取到浮动子元素脱标的高度的问题。</span><br><span class="line">优点：简单，代码少，容易掌握</span><br><span class="line">缺点：只适合高度固定的布局，要给出精确的高度，如果高度和父级div不一样时，会产生问题</span><br></pre></td></tr></table></figure>
 
-<p><code>$ git commit -m &#39;del&#39;</code>         </p>
-<!--//把本地仓库的文件上传到远程仓库。-->
+<h5 id="3-父级div定义overflow-hidden"><a href="#3-父级div定义overflow-hidden" class="headerlink" title="3.父级div定义overflow: hidden"></a>3.父级div定义overflow: hidden</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box</span> &#123;</span></span><br><span class="line">            background: skyblue;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">            zoom: 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.kid</span> &#123;</span></span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.kid1</span> &#123;</span></span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.kid2</span> &#123;</span></span><br><span class="line">            background: orange;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.wrap</span> &#123;</span></span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 150px;</span><br><span class="line">            background: blue;</span><br><span class="line">            color: white;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid kid1"</span>&gt;</span>子元素1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid kid2"</span>&gt;</span>子元素2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span>其他部分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">原理：必须定义zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：不能和position配合使用，因为超出的尺寸的会被隐藏。</span><br><span class="line">建议：只推荐没有使用position或对overflow:hidden理解比较深的朋友使用</span><br></pre></td></tr></table></figure>
 
-<p><code>$ git push origin master</code></p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C8.png" alt="8"></p>
-<blockquote>
-<p>现在，我们就成功更新了远程仓库，现在仓库里什么都没有，使用网址<a href="https://rfhzhj.github.io/bird" target="_blank" rel="noopener">https://rfhzhj.github.io/bird</a> , 已经访问不到。</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C9.png" alt="9"></p>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C10.png" alt="10"></p>
-<h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><blockquote>
-<p>现在我们就可以往本地仓库里面添加我们想要展示的文件啦：</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C11.png" alt="11"></p>
-<blockquote>
-<p>然后再次执行上一步的三个命令：</p>
-<p><code>$ git add *</code>    </p>
-<p><code>$ git commit -m &#39;del&#39;</code>         </p>
-<p><code>$ git push origin master</code></p>
-<p>完成这一步之后，远程仓库的文件就已经完成更新了，可以通过网址来访问我们想要展示的项目了。</p>
-</blockquote>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C12.png" alt="12"></p>
-<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C13.png" alt="13"></p>
-<blockquote>
-<p>这样我们就成功把自己的项目挂到了Github上面了。</p>
-<p>下面是我自己上传的一些动画Demo:</p>
-<h5 id="粒子动画特效"><a href="#粒子动画特效" class="headerlink" title="粒子动画特效"></a>粒子动画特效</h5><p><a href="https://1363684100.github.io/animation/canvas">https://1363684100.github.io/animation/canvas</a></p>
-<h5 id="视差滚动特效"><a href="#视差滚动特效" class="headerlink" title="视差滚动特效"></a>视差滚动特效</h5><p><a href="https://1363684100.github.io/animation/jQueryScroll">https://1363684100.github.io/animation/jQueryScroll</a></p>
-<h6 id="贪吃蛇小游戏"><a href="#贪吃蛇小游戏" class="headerlink" title="贪吃蛇小游戏"></a>贪吃蛇小游戏</h6><p><a href="https://1363684100.github.io/animation/h5game">https://1363684100.github.io/animation/h5game</a></p>
-<h5 id="Threejs动画"><a href="#Threejs动画" class="headerlink" title="Threejs动画"></a>Threejs动画</h5><p><a href="https://1363684100.github.io/animation/threejs">https://1363684100.github.io/animation/threejs</a></p>
-</blockquote>
+<h5 id="4-父级定义overflow-auto"><a href="#4-父级定义overflow-auto" class="headerlink" title="4.父级定义overflow:auto"></a>4.父级定义overflow:auto</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原理：必须定义zoom:1，同时不能定义height(定义高度之后就超出范围隐藏了)，使用overflow:auto时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：内部宽高超过父级div时，会出现滚动条。</span><br><span class="line">建议：不推荐使用，如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧。</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-使用空div法-隔-内墙法"><a href="#5-使用空div法-隔-内墙法" class="headerlink" title="5. 使用空div法(隔/内墙法)"></a>5. 使用空div法(隔/内墙法)</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">原理：添加一个空div，利用css提供的clear:both清除浮动</span><br><span class="line">优点：通俗易懂，容易掌握</span><br><span class="line">缺点：会添加很多无意义的空标签，在后期维护中将是噩梦</span><br><span class="line">建议：不推荐使用，但此方法是以前主要使用的一种清除浮动方法</span><br></pre></td></tr></table></figure>
+
 
       
       <!-- reward -->
@@ -239,14 +185,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
 
 
     </footer>
@@ -257,19 +203,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            CSS高度坍塌
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/" class="article-nav-link">
+      <a href="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">使用hexo和git搭建blog</div>
+        <div class="article-nav-title">在Github上部署网页</div>
       </a>
     
   </nav>
