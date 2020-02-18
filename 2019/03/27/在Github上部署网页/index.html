@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Hello World |  SunのBlog
+    在Github上部署网页 |  SunのBlog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-hello-world" class="article article-type-post" itemscope
+  <article id="post-在Github上部署网页" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hello World
+  在Github上部署网页
 </h1>
   
 
@@ -48,12 +48,12 @@
 
     
     <div class="article-meta">
-      <a href="/2019/03/12/hello-world/" class="article-date">
-  <time datetime="2019-03-12T05:24:39.000Z" itemprop="datePublished">2019-03-12</time>
+      <a href="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" class="article-date">
+  <time datetime="2019-03-27T12:39:14.000Z" itemprop="datePublished">2019-03-27</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/others/">others</a>
+    <a class="article-category-link" href="/categories/git/">git</a>
   </div>
 
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">73字</span>
+            <span class="post-count">609字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -99,19 +99,77 @@
       
 
       
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+      <h2 id="如何在Github上部署自己的网页"><a href="#如何在Github上部署自己的网页" class="headerlink" title="如何在Github上部署自己的网页"></a>如何在Github上部署自己的网页</h2><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><blockquote>
+<p>登陆Github账号，然后创建一个远程仓库，这里我们命名为bird，创建完成后复制其ssh的URL备用</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C1.png" alt="1"></p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C2.png" alt="2"></p>
+<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><blockquote>
+<p>进入到bird仓库中，选择“settings”进行仓库设置，滚动到页面底部找到“Github Pages”部分：</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C3.png" alt="3"></p>
+<blockquote>
+<p>点击“Choose a theme”选项：</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C4.png" alt="4"></p>
+<blockquote>
+<p>点击“Select theme”对主题进行选择，完成后一个具备远程访问功能的仓库就已经设置好了，可以通过网址进行访问了。在浏览器中输入网址：<a href="https://rfhzhj.github.io/bird" target="_blank" rel="noopener">https://rfhzhj.github.io/bird</a> , 即可访问到这个仓库的首页：</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C5.png" alt="5"></p>
+<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><blockquote>
+<p>在本地创建映射仓库，我们在本地创建一个文件夹用于承载远程仓库的克隆体（这里我创建了名为zhj的文件夹）。打开<strong><em>Git Bash命令行</em></strong>，定位到zhj文件夹，输入克隆命令（git clone + ssh的url）：</p>
+<p><code>git clone git@github.com:RFHzhj/bird.git</code></p>
+<!--在进行克隆的时候也可以使用https进行克隆，即输入命令（git clone + HTTPS的url）:-->
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C6.png" alt="6"></p>
+<blockquote>
+<p>下面正式进行克隆：</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C7.png" alt="7"></p>
+<blockquote>
+<p>命令执行完成后，本地文件夹zhj目录下就会有一个远程仓库的克隆体，里面有一个固定文件夹.git和其他一些默认文件，就是之前<a href="https://rfhzhj.github.io/bird" target="_blank" rel="noopener">https://rfhzhj.github.io/bird</a> , 访问到的页面。</p>
+</blockquote>
+<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><blockquote>
+<p>打开克隆仓库，删除除了.git以外的其他文件，上传我们自己的文件。我们先完成删除环节，删除完克隆仓库的目标文件之后，在此路径下打开github命令窗口，执行以下命令：</p>
+<!--把本地仓库文件上传到缓存-->
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p><code>$ git add *</code>    </p>
+<!--//把第一步上传到缓存的东西上传到本地仓库，其中'del'是操作标识，内容随便填，方便用户观看。-->
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p><code>$ git commit -m &#39;del&#39;</code>         </p>
+<!--//把本地仓库的文件上传到远程仓库。-->
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><code>$ git push origin master</code></p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C8.png" alt="8"></p>
+<blockquote>
+<p>现在，我们就成功更新了远程仓库，现在仓库里什么都没有，使用网址<a href="https://rfhzhj.github.io/bird" target="_blank" rel="noopener">https://rfhzhj.github.io/bird</a> , 已经访问不到。</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C9.png" alt="9"></p>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C10.png" alt="10"></p>
+<h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><blockquote>
+<p>现在我们就可以往本地仓库里面添加我们想要展示的文件啦：</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C11.png" alt="11"></p>
+<blockquote>
+<p>然后再次执行上一步的三个命令：</p>
+<p><code>$ git add *</code>    </p>
+<p><code>$ git commit -m &#39;del&#39;</code>         </p>
+<p><code>$ git push origin master</code></p>
+<p>完成这一步之后，远程仓库的文件就已经完成更新了，可以通过网址来访问我们想要展示的项目了。</p>
+</blockquote>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C12.png" alt="12"></p>
+<p><img src="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/two%5C13.png" alt="13"></p>
+<blockquote>
+<p>这样我们就成功把自己的项目挂到了Github上面了。</p>
+<p>下面是我自己上传的一些动画Demo:</p>
+<h5 id="粒子动画特效"><a href="#粒子动画特效" class="headerlink" title="粒子动画特效"></a>粒子动画特效</h5><p><a href="https://1363684100.github.io/animation/canvas">https://1363684100.github.io/animation/canvas</a></p>
+<h5 id="视差滚动特效"><a href="#视差滚动特效" class="headerlink" title="视差滚动特效"></a>视差滚动特效</h5><p><a href="https://1363684100.github.io/animation/jQueryScroll">https://1363684100.github.io/animation/jQueryScroll</a></p>
+<h6 id="贪吃蛇小游戏"><a href="#贪吃蛇小游戏" class="headerlink" title="贪吃蛇小游戏"></a>贪吃蛇小游戏</h6><p><a href="https://1363684100.github.io/animation/h5game">https://1363684100.github.io/animation/h5game</a></p>
+<h5 id="Threejs动画"><a href="#Threejs动画" class="headerlink" title="Threejs动画"></a>Threejs动画</h5><p><a href="https://1363684100.github.io/animation/threejs">https://1363684100.github.io/animation/threejs</a></p>
+</blockquote>
 
       
       <!-- reward -->
@@ -181,14 +239,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/03/12/hello-world/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/" rel="tag">others</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
 
 
     </footer>
@@ -199,15 +257,20 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/" class="article-nav-link">
+      <a href="/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            使用hexo和git搭建blog
+            CSS高度坍塌
           
         </div>
       </a>
     
+    
+      <a href="/2019/03/13/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BAblog/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">使用hexo和git搭建blog</div>
+      </a>
     
   </nav>
 
