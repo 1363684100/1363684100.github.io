@@ -114,30 +114,9 @@
 <p>上图例子 for循环耗时会很久</p>
 <p>这意味着 用户得不到 ‘你好啊’ 的响应 就会下意识会认为浏览器卡死了 所以js必须要有异步</p>
 <p>js通过事件循环来实现异步 这也是js的运行机制</p>
-<h4 id="二、JS的事件循环"><a href="#二、JS的事件循环" class="headerlink" title="二、JS的事件循环"></a>二、JS的事件循环</h4><h5 id="1-什么是js事件循环"><a href="#1-什么是js事件循环" class="headerlink" title="1.什么是js事件循环"></a>1.什么是js事件循环</h5><blockquote>
-<p>在浏览器中出现对应的异步模块，用来提高主线程的执行效率，程序中的异步任务会放在一个队列中，当主线程空闲时从队列中把相应的任务拿出来执行。</p>
-</blockquote>
-<h5 id="2-任务队列"><a href="#2-任务队列" class="headerlink" title="2.任务队列"></a>2.任务队列</h5><p>遇到同步任务直接执行，异步任务有两种：</p>
-<p>宏队列（macro-task）：</p>
-<blockquote>
-<p> 主要有script、setTimeout、setInterval、setImmediate、I/O、UI、rendering</p>
-</blockquote>
-<p>微队列（micro-task）：</p>
-<blockquote>
-<p>主要有promise、process.nextTick、Object.observe(已废弃)、MutationObserver(html5新特性)</p>
-</blockquote>
-<!--process.nextTick 会优先 promise 执行-->
-
-<h5 id="3-执行顺序"><a href="#3-执行顺序" class="headerlink" title="3.执行顺序"></a>3.执行顺序</h5><blockquote>
-<p>(1).    首先将 script 代码块入栈，执行 script 代码块</p>
-<p>(2).    在执行 script 代码块过程中，如果有异步任务，将其分入对应的宏队列和微队列</p>
-<p>(3).    当 script 执行完毕，会先从微队列中把所有的微队列任务拿出来执行</p>
-<p>(4).    所有的微队列任务执行完毕后，在执行宏队列的任务</p>
-</blockquote>
-<p><img src="http://q5vouoe7k.bkt.clouddn.com/2019-05-02-01.webp" alt></p>
-<h5 id="4-示例代码"><a href="#4-示例代码" class="headerlink" title="4.示例代码"></a>4.示例代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand1"</span>);</span></span><br><span class="line"><span class="javascript">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand2"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand3"</span>);</span></span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">p1.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand4"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"datagrand5"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand6"</span>);</span></span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">p2.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand7"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//答案：</span></span></span><br><span class="line">datagrand1</span><br><span class="line">datagrand3</span><br><span class="line">datagrand5</span><br><span class="line">datagrand6</span><br><span class="line">datagrand4</span><br><span class="line">datagrand7</span><br><span class="line">datagrand2</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+      
+      <a class="article-more-link" href="/2020/02/20/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">阅读更多...</a>
+      
       
       <!-- reward -->
       
