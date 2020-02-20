@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CSS高度坍塌 |  SunのBlog
+    MVC和MVVM |  SunのBlog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-CSS高度坍塌" class="article article-type-post" itemscope
+  <article id="post-MVC和MVVM" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CSS高度坍塌
+  MVC和MVVM
 </h1>
   
 
@@ -48,12 +48,12 @@
 
     
     <div class="article-meta">
-      <a href="/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" class="article-date">
-  <time datetime="2019-04-08T10:26:58.000Z" itemprop="datePublished">2019-04-08</time>
+      <a href="/2019/04/20/MVC%E5%92%8CMVVM/" class="article-date">
+  <time datetime="2019-04-20T10:18:50.000Z" itemprop="datePublished">2019-04-20</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/others/">others</a>
   </div>
 
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">935字</span>
+            <span class="post-count">1.4k字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3分钟</span>
+            <span class="post-count">4分钟</span>
         </span>
     </span>
 </div>
@@ -99,23 +99,46 @@
       
 
       
-      <h3 id="CSS高度坍塌产生的原因是什么？如何解决？"><a href="#CSS高度坍塌产生的原因是什么？如何解决？" class="headerlink" title="CSS高度坍塌产生的原因是什么？如何解决？"></a>CSS高度坍塌产生的原因是什么？如何解决？</h3><h4 id="一、CSS高度坍塌："><a href="#一、CSS高度坍塌：" class="headerlink" title="一、CSS高度坍塌："></a>一、CSS高度坍塌：</h4><blockquote>
-<p>原因：在文档流中，父元素的高度默认是被子元素撑开的，也就是子元素多高，父元素就多高。但是当为子元素设置浮动以后，子元素会完全脱离文档流，此时将会导致子元素无法撑起父元素的高度，导致父元素的高度塌陷.由于父元素的高度塌陷了，则父元素下的所有元素都会向上移动，这样将会导致页面布局混乱。</p>
-</blockquote>
-<p>CSS高度坍塌从本质上看，就是浮动的原因。所以要解决CSS高度坍塌问题，就是要清除浮动。</p>
-<p>清除浮动主要是为了解决父级元素因为子元素浮动引起内部高度为0的问题。</p>
+      <h3 id="MVC和MVVM"><a href="#MVC和MVVM" class="headerlink" title="MVC和MVVM"></a>MVC和MVVM</h3><h4 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h4><h5 id="1-MVC是什么？"><a href="#1-MVC是什么？" class="headerlink" title="1.MVC是什么？"></a>1.MVC是什么？</h5><p>M：model - 模型层，支持数据的增删改查，</p>
+<p>V:    view - 视图层，包括前端页面(html,javascript,css)</p>
+<p>C:    controller - 控制层，处理业务，包含了路由</p>
+<p>MVC（Model View Controller），是模型(model)－视图(view)－控制器(controller)的缩写，它是一种软件设计思想和架构模式，用来将业务逻辑、数据操作、界面显示分离分别组织代码的一种软件结构设计。该设计思想于1982年提出，现在使用很广泛。不过既然说它是一种设计思想，那么也就是说，它不属于PHP语言，也不是PHP语言必须的部分。对于软件设计思想来说，没有绝对的好坏之分，主要看是否适合项目的需求。</p>
 <a id="more"></a>
 
-<h4 id="二、解决方法-清除浮动"><a href="#二、解决方法-清除浮动" class="headerlink" title="二、解决方法(清除浮动)"></a>二、解决方法(清除浮动)</h4><h5 id="1-父级div定义伪类：after，zoom，和befotr"><a href="#1-父级div定义伪类：after，zoom，和befotr" class="headerlink" title="1. 父级div定义伪类：after，zoom，和befotr"></a>1. 父级div定义伪类：after，zoom，和befotr</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;</span><br><span class="line">	display:block;</span><br><span class="line">	clear:both;</span><br><span class="line">	content:"";</span><br><span class="line">	visibility:hidden;</span><br><span class="line">	height:0</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">	zoom:1</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">原理：IE8以上和非IE浏览器才支持:after，zoom(IE转有属性)可解决ie6,ie7浮动问题。</span><br><span class="line">优点：浏览器支持好，不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）。</span><br><span class="line">缺点：代码多，要两句代码结合使用，才能让主流浏览器都支持</span><br><span class="line">建议：推荐使用，建议定义公共类，以减少CSS代码</span><br><span class="line">在大型项目中，我会使用 clearfix 方法，在需要的地方使用.clearfix</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-父级div定义height"><a href="#2-父级div定义height" class="headerlink" title="2.父级div定义height"></a>2.父级div定义height</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">原理：父级div手动定义height，就解决了父级div无法自动获取到浮动子元素脱标的高度的问题。</span><br><span class="line">优点：简单，代码少，容易掌握</span><br><span class="line">缺点：只适合高度固定的布局，要给出精确的高度，如果高度和父级div不一样时，会产生问题</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-父级div定义overflow-hidden"><a href="#3-父级div定义overflow-hidden" class="headerlink" title="3.父级div定义overflow: hidden"></a>3.父级div定义overflow: hidden</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box</span> &#123;</span></span><br><span class="line">            background: skyblue;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">            zoom: 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.kid</span> &#123;</span></span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.kid1</span> &#123;</span></span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.kid2</span> &#123;</span></span><br><span class="line">            background: orange;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.wrap</span> &#123;</span></span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 150px;</span><br><span class="line">            background: blue;</span><br><span class="line">            color: white;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid kid1"</span>&gt;</span>子元素1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid kid2"</span>&gt;</span>子元素2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span>其他部分<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">原理：必须定义zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：不能和position配合使用，因为超出的尺寸的会被隐藏。</span><br><span class="line">建议：只推荐没有使用position或对overflow:hidden理解比较深的朋友使用</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-父级定义overflow-auto"><a href="#4-父级定义overflow-auto" class="headerlink" title="4.父级定义overflow:auto"></a>4.父级定义overflow:auto</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原理：必须定义zoom:1，同时不能定义height(定义高度之后就超出范围隐藏了)，使用overflow:auto时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：内部宽高超过父级div时，会出现滚动条。</span><br><span class="line">建议：不推荐使用，如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧。</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-使用空div法-隔-内墙法"><a href="#5-使用空div法-隔-内墙法" class="headerlink" title="5. 使用空div法(隔/内墙法)"></a>5. 使用空div法(隔/内墙法)</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">原理：添加一个空div，利用css提供的clear:both清除浮动</span><br><span class="line">优点：通俗易懂，容易掌握</span><br><span class="line">缺点：会添加很多无意义的空标签，在后期维护中将是噩梦</span><br><span class="line">建议：不推荐使用，但此方法是以前主要使用的一种清除浮动方法</span><br></pre></td></tr></table></figure>
-
+<p>可以简单的这么理解MVC:</p>
+<blockquote>
+<p>比如，一个人去饭店吃饭，桌子就像视图（View），用户可以趴在桌子上点菜，另外，菜做好后可以放到桌子上。各个做菜师傅就像模型（Model），比如有的师傅做信阳菜，有的师傅做湘菜，有的做粤菜，他们各自负责一类菜怎么炒，什么时候该在菜里放什么调料，该用什么火候等。控制器（Controller）就像传菜员，他可以接收用户的菜单，然后把根据菜单需求，归类分解成多个小需求，然后把这些需求分配给不同的师傅去做，等做菜师傅把菜做好，他再把这些菜端到各自的餐桌上。</p>
+</blockquote>
+<p><img src="http://q5vouoe7k.bkt.clouddn.com/mvc.png" alt></p>
+<h5 id="2-MVC模式的优缺点"><a href="#2-MVC模式的优缺点" class="headerlink" title="2.MVC模式的优缺点"></a>2.MVC模式的优缺点</h5><p>优点：    </p>
+<blockquote>
+<p>1、<strong>分工明确</strong>（开发人员可以只关注整个结构中的其中某一层 ）；</p>
+<p>2、<strong>松耦合</strong>（可以降低层与层之间的依赖）;</p>
+<p>3、<strong>复用性高</strong>（利于各层逻辑的复用）；</p>
+<p>4、<strong>有利于标准化</strong>（有利于通过工程化、工具化产生管理程序代码）；</p>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<p>1、有时会导致级联的修改。这种修改尤其体现在自上而下的方向。如果在表示层中需要增加一个功能，为保证其设计符合分层式结构，可能需要在相应的业务逻辑层和数据访问层中都增加相应的代码。<br>2、降低了系统的性能。这是不言而喻的。如果不采用分层式结构，很多业务可以直接造访数据库，以此获取相应的数据，如今却必须通过中间层来完成。</p>
+<p>3、由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。</p>
+<p>4、MVC并不适合小型甚至中等规模的应用程序，花费大量时间将MVC应用到规模并不是很大的应用程序通常会得不偿失。</p>
+</blockquote>
+<h4 id="二、MVVM"><a href="#二、MVVM" class="headerlink" title="二、MVVM"></a>二、MVVM</h4><h5 id="1-MVVM是什么？"><a href="#1-MVVM是什么？" class="headerlink" title="1.MVVM是什么？"></a>1.MVVM是什么？</h5><blockquote>
+<p>MVVM是 Model-View-ViewModel 的简写，MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想.</p>
+<p>在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel.ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回Model，View 和 Model 之间的同步工作完全是自动的，无需人为干涉（由viewModel完成）</p>
+<p>因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
+</blockquote>
+<p><img src="http://q5vouoe7k.bkt.clouddn.com/mvvm.png" alt></p>
+<h5 id="2-MVVM的优缺点"><a href="#2-MVVM的优缺点" class="headerlink" title="2.MVVM的优缺点"></a>2.MVVM的优缺点</h5><blockquote>
+<p>1、低耦合：MVVM模式中，数据是独立于UI的，ViewModel只负责处理和提供数据，UI想怎么处理数据都由UI自己决定，ViewModel不涉及任何和UI相关的事，即使控件改变（input换成p）,ViewModel几乎不需要更改任何代码，专注自己的数据处理就可以了</p>
+<p>2.自动同步数据:ViewModel通过双向数据绑定把View层和Model层连接了起来，View和Model这两者可以自动同步。程序员不需要手动操作DOM, 不需要关注数据状态的同步问题，MVVM 统一管理了复杂的数据状态维护</p>
+<p>3、可重用性：你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。</p>
+<p>4、独立开发：开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。</p>
+<p>5、可测试：ViewModel里面是数据和业务逻辑，View中关注的是UI，这样的做测试是很方便的，完全没有彼此的依赖，不管是UI的单元测试还是业务逻辑的单元测试，都是低耦合的</p>
+</blockquote>
+<h4 id="三、MVC和MVVM的区别"><a href="#三、MVC和MVVM的区别" class="headerlink" title="三、MVC和MVVM的区别"></a>三、MVC和MVVM的区别</h4><blockquote>
+<p>mvc 和 mvvm 其实区别并不大。都是一种设计思想，主要区别如下：<br>1.mvc 中 Controller演变成 mvvm 中的 viewModel<br>2.mvvm 通过数据来驱动视图层的显示而不是节点操作。<br>3.mvc中Model和View是可以直接打交道的，造成Model层和View层之间的耦合度高。而mvvm中Model和View不直接交互，而是通过中间桥梁ViewModel来同步<br>4.mvvm主要解决了:mvc中大量的DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。</p>
+</blockquote>
 
       
       <!-- reward -->
@@ -185,14 +208,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/04/20/MVC%E5%92%8CMVVM/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/" rel="tag">others</a></li></ul>
 
 
     </footer>
@@ -203,19 +226,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/04/20/MVC%E5%92%8CMVVM/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            MVC和MVVM
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/03/27/%E5%9C%A8Github%E4%B8%8A%E9%83%A8%E7%BD%B2%E7%BD%91%E9%A1%B5/" class="article-nav-link">
+      <a href="/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">在Github上部署网页</div>
+        <div class="article-nav-title">CSS高度坍塌</div>
       </a>
     
   </nav>
