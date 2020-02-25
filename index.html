@@ -65,6 +65,306 @@
     
     
     
+    <article id="post-前端小知识" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/05/%E5%89%8D%E7%AB%AF%E5%B0%8F%E7%9F%A5%E8%AF%86/"
+    >前端小知识</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/05/%E5%89%8D%E7%AB%AF%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time datetime="2019-07-05T11:58:39.000Z" itemprop="datePublished">2019-07-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">others</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <ul>
+<li>1em=16px（浏览器默认值）</li>
+<li>在 before 或 after 伪类中使用字体图标时，记得设置 font-weight，否则显示不出来</li>
+<li>oncontextmenu=”return false” 在标签中用来取消鼠标右键</li>
+<li>使用数学运算的时候，可以先查看 Math 对象。运行速度比用 js 算快。</li>
+<li>jquery 在 1.9 开始的版本都不支持 live()和 bind()方法了，全部都改成 on()方法</li>
+</ul>
+<h4 id="延迟脚本"><a href="#延迟脚本" class="headerlink" title="延迟脚本"></a>延迟脚本</h4><p>HTML4.01 为 script 标签定义了 defer 属性，这个属性的用途是表明脚本在执行时不会影响页面的构造。脚本会被延迟到整个页面都解析完毕后再运行</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这个例子中的script元素虽然放在了&lt;head&gt;元素中，但其中包含的脚本将延迟到浏览器遇到&lt;/html&gt;标签后执行。 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example HTML Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">"example2.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里放内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><p>ECMAScript 5 引入了严格模式，要整个脚本启用严格模式，可以在顶部加入如下代码：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>也可以指定函数在严格模式下执行：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function doSomething() &#123;</span><br><span class="line">  &quot;use strict&quot;;</span><br><span class="line">  &#x2F;&#x2F; 函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="防止在一定时间内重复执行："><a href="#防止在一定时间内重复执行：" class="headerlink" title="防止在一定时间内重复执行："></a>防止在一定时间内重复执行：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="comment">//改变窗口大小之后500ms刷新表格</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> tout;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line">      if (tout) &#123;</span><br><span class="line">        clearTimeout(tout);</span><br><span class="line">      &#125;</span><br><span class="line"><span class="actionscript">      tout = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        tout = <span class="literal">null</span>;</span></span><br><span class="line">        calcSize();</span><br><span class="line">        defEcharts();</span><br><span class="line">      &#125;, 500);</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="document-documentElement-与-document-body"><a href="#document-documentElement-与-document-body" class="headerlink" title="document.documentElement 与 document.body"></a>document.documentElement 与 document.body</h4><ul>
+<li>document 代表的是整个文档(对于一个网页来说包括整个网页结构)，</li>
+<li>document.documentElement 是整个文档节点树的根节点，在网页中即 html 标签；</li>
+<li>document.body 是整个文档 DOM 节点树里的 body 节点，网页中即为 body 标签元素。</li>
+<li>在文档使用了 DTD 时，document.body.scrollTop 的值为 0，此时需要使用 document.documentElement.scrollTop 来获取滚动条滚过的长度；在未使用 DTD 定义文档时，使用 document.body.scrollTop 获取值。</li>
+</ul>
+<h4 id="使用-console-time-和-console-timeEnd-来计算代码执行的时间"><a href="#使用-console-time-和-console-timeEnd-来计算代码执行的时间" class="headerlink" title="使用 console.time 和 console.timeEnd 来计算代码执行的时间"></a>使用 console.time 和 console.timeEnd 来计算代码执行的时间</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span>    </span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.time(<span class="string">"获取数据"</span>);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 执行一些代码</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">//</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.timeEnd(<span class="string">"获取数据"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="浏览器内核模式"><a href="#浏览器内核模式" class="headerlink" title="浏览器内核模式"></a>浏览器内核模式</h4><p>ie8 以上浏览器使用最新文本模式；双内核浏览器强制使用 chrome 浏览器内核</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/" rel="tag">others</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-CSS优化问题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/06/18/CSS%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/"
+    >CSS优化问题</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/06/18/CSS%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2019-06-18T12:47:52.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="CSS优化"><a href="#CSS优化" class="headerlink" title="CSS优化"></a>CSS优化</h3><h4 id="能用-CSS-解决的问题就不用JS"><a href="#能用-CSS-解决的问题就不用JS" class="headerlink" title="能用 CSS 解决的问题就不用JS"></a>能用 CSS 解决的问题就不用JS</h4><h5 id="导航高亮"><a href="#导航高亮" class="headerlink" title="导航高亮"></a>导航高亮</h5><blockquote>
+<p>可以用 class 来标识菜单是否选中，选中的 class 增加特殊样式，:hover 选择器可以用来表示鼠标悬浮的样式</p>
+</blockquote>
+<h5 id="鼠标悬浮时显示"><a href="#鼠标悬浮时显示" class="headerlink" title="鼠标悬浮时显示"></a>鼠标悬浮时显示</h5><blockquote>
+<p>使用 :hover 选择器实现</p>
+</blockquote>
+<h5 id="自定义-radio-checkbox-的样式"><a href="#自定义-radio-checkbox-的样式" class="headerlink" title="自定义 radio/checkbox 的样式"></a>自定义 radio/checkbox 的样式</h5><blockquote>
+<p>input 始终隐藏，通过设置 span.checkbox 的样式来实现自定义样式，通过 :checked 伪类更改选中状态的样式</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span>&#123;</span></span><br><span class="line">    display: none;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="comment">/* 未选中的 checkbox 的样式 */</span></span></span><br><span class="line"><span class="css">    <span class="selector-class">.checkbox</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 具体实现 */</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 具体实现 */</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="多列等高"><a href="#多列等高" class="headerlink" title="多列等高"></a>多列等高</h5><blockquote>
+<ol>
+<li>借助 margin/padding 实现<br>通过设置很大的 padding 值，使得高度变的很大，不可取。</li>
+<li>借助 table 自适应特性<br>代码如下</li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.columns</span> &#123;</span></span><br><span class="line">        display: table;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.columns</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line">        padding: 16px;</span><br><span class="line">        margin-left: 16px;</span><br><span class="line">        display: table-cell;</span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#ccc</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000000</span>;</span></span><br><span class="line">        vertical-align: top;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"columns"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 2<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 2<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.使用 flex 布局实现</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.columns</span> &#123;</span></span><br><span class="line">        display: flex;</span><br><span class="line">        align-items: stretch;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.columns</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line">        padding: 16px;</span><br><span class="line">        margin-left: 16px;</span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#ccc</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000000</span>;</span></span><br><span class="line">        vertical-align: top;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"columns"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 1<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 2<span class="tag">&lt;<span class="name">br</span>&gt;</span>column 2<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="根据个数显示不同样式"><a href="#根据个数显示不同样式" class="headerlink" title="根据个数显示不同样式"></a>根据个数显示不同样式</h5><blockquote>
+<p>例如有 1-3 个 item 在同一行，但 item 但个数不一定，如果只有 1 个，则占宽 100%，有 2 个时占宽 50%，3 个时每个占宽 33%。可以使用 css3 解决（～ 表示兄弟选择器）</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    li&#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span><span class="selector-pseudo">:nth-last-child(2)</span>,</span></span><br><span class="line"><span class="css">    <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span><span class="selector-pseudo">:nth-last-child(2)</span> ~ <span class="selector-tag">li</span>&#123;</span></span><br><span class="line">        width: 50%;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span><span class="selector-pseudo">:nth-last-child(3)</span>,</span></span><br><span class="line"><span class="css">    <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span><span class="selector-pseudo">:nth-last-child(3)</span> ~ <span class="selector-tag">li</span>&#123;</span></span><br><span class="line">        width: 33%;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="hover-时候显示提示信息"><a href="#hover-时候显示提示信息" class="headerlink" title="hover 时候显示提示信息"></a>hover 时候显示提示信息</h5><blockquote>
+<p>使用 title 属性觉得效果太差，可以使用 :hover::before 来做</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">span</span><span class="selector-attr">[data-title]</span>&#123;</span></span><br><span class="line">        position: relative;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-tag">span</span><span class="selector-attr">[data-title]</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::before</span>&#123;</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        content: attr(data-title);</span><br><span class="line">        top: -200%;</span><br><span class="line">        left: 50%;</span><br><span class="line">        transform: translateX(-50%);</span><br><span class="line">        height: 32px;</span><br><span class="line">        line-height: 32px;</span><br><span class="line">        white-space: nowrap;</span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#26a2ff</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">        padding: 0 8px;</span><br><span class="line">        border-radius: 4px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-tag">span</span><span class="selector-attr">[data-title]</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span>&#123;</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        content: '';</span><br><span class="line">        top: calc(-200% + 32px);</span><br><span class="line">        left: 50%;</span><br><span class="line">        transform: translateX(-50%);</span><br><span class="line"><span class="css">        <span class="selector-tag">border-top</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#26a2ff</span>;</span></span><br><span class="line">        border-left: 10px solid transparent;</span><br><span class="line">        border-right: 10px solid transparent;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>hello,<span class="tag">&lt;<span class="name">span</span> <span class="attr">data-title</span>=<span class="string">"我是提示信息！"</span>&gt;</span>请把鼠标放到我身上！<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-var、let和const" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/05/25/var%E3%80%81let%E5%92%8Cconst/"
+    >var、let和const</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/05/25/var%E3%80%81let%E5%92%8Cconst/" class="article-date">
+  <time datetime="2019-05-25T11:25:29.000Z" itemprop="datePublished">2019-05-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h4 id="var、let和const"><a href="#var、let和const" class="headerlink" title="var、let和const"></a>var、let和const</h4><h5 id="let-和-const-新增了块级作用域"><a href="#let-和-const-新增了块级作用域" class="headerlink" title="let 和 const 新增了块级作用域"></a>let 和 const 新增了块级作用域</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a = [];</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span></span><br><span class="line"><span class="actionscript">        a[i] = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(i);</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    a[<span class="number">0</span>](); <span class="comment">//10</span></span></span><br><span class="line"><span class="actionscript">    a[<span class="number">6</span>](); <span class="comment">//10</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用var来定义变量的时候，上面的例子会全部输出 10，要解决该问题，可以使用闭包</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a = [];</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span></span><br><span class="line"><span class="actionscript">    	a[i] = (<span class="function"><span class="keyword">function</span><span class="params">(a)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">      		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        		<span class="built_in">console</span>.log(a)</span></span><br><span class="line">      		&#125;</span><br><span class="line">    	&#125;)(i)</span><br><span class="line">	&#125; </span><br><span class="line"><span class="actionscript">	a[<span class="number">6</span>](); <span class="comment">// 6</span></span></span><br><span class="line"><span class="actionscript">	a[<span class="number">9</span>](); <span class="comment">// 9</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>现在，我们可以用let来解决这个问题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a = [];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span></span><br><span class="line"><span class="actionscript">      a[i] = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(i);</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    a[<span class="number">0</span>]();<span class="comment">//0</span></span></span><br><span class="line"><span class="actionscript">    a[<span class="number">6</span>](); <span class="comment">// 6</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>因为let每次循环都会生成一个新的块级作用域，内部保存着i变量的值。</p>
+<h5 id="let-和-const-不会变量提升，不允许重复定义变量，并且存在TDZ-暂时性死区"><a href="#let-和-const-不会变量提升，不允许重复定义变量，并且存在TDZ-暂时性死区" class="headerlink" title="let 和 const 不会变量提升，不允许重复定义变量，并且存在TDZ(暂时性死区)"></a>let 和 const 不会变量提升，不允许重复定义变量，并且存在TDZ(暂时性死区)</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(a);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(b);</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a=<span class="number">0</span>; <span class="comment">// undefined</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> b=<span class="number">0</span>; <span class="comment">// ReferenceError: b is not defined</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在块级作用域中，即使不存在变量提升，它也会影响当前块级作用域，即绑定在了当前作用域。在作用域中引用外部的变量将会报错。</p>
+<h5 id="const-用来定义常量"><a href="#const-用来定义常量" class="headerlink" title="const 用来定义常量"></a>const 用来定义常量</h5><blockquote>
+<p>const 实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const 只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它指向的数据结构是不是可变的，就完全不能控制了</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scritp</span>&gt;</span></span><br><span class="line">    const a=[1,2,3]</span><br><span class="line">    a.push(4)</span><br><span class="line">    console.log(a); //[1, 2, 3, 4]</span><br><span class="line"><span class="tag">&lt;/<span class="name">scritp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-JS事件循环" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -73,7 +373,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/02/20/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"
+  <a class="article-title" href="/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"
     >JS事件循环</a
   >
 </h2>
@@ -84,8 +384,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/20/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-date">
-  <time datetime="2020-02-20T11:19:49.000Z" itemprop="datePublished">2020-02-20</time>
+      <a href="/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time datetime="2019-05-02T11:19:49.000Z" itemprop="datePublished">2019-05-02</time>
 </a>
       
   <div class="article-category">
@@ -115,7 +415,7 @@
 <p>这意味着 用户得不到 ‘你好啊’ 的响应 就会下意识会认为浏览器卡死了 所以js必须要有异步</p>
 <p>js通过事件循环来实现异步 这也是js的运行机制</p>
       
-      <a class="article-more-link" href="/2020/02/20/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">阅读更多...</a>
+      <a class="article-more-link" href="/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">阅读更多...</a>
       
       
       <!-- reward -->

@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    JS事件循环 |  SunのBlog
+    var、let和const |  SunのBlog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-JS事件循环" class="article article-type-post" itemscope
+  <article id="post-var、let和const" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  JS事件循环
+  var、let和const
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/20/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-date">
-  <time datetime="2020-02-20T11:19:49.000Z" itemprop="datePublished">2020-02-20</time>
+      <a href="/2019/05/25/var%E3%80%81let%E5%92%8Cconst/" class="article-date">
+  <time datetime="2019-05-25T11:25:29.000Z" itemprop="datePublished">2019-05-25</time>
 </a>
       
   <div class="article-category">
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">465字</span>
+            <span class="post-count">507字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -99,36 +99,24 @@
       
 
       
-      <h4 id="一、JS为什么设计为单线程？"><a href="#一、JS为什么设计为单线程？" class="headerlink" title="一、JS为什么设计为单线程？"></a>一、JS为什么设计为单线程？</h4><h5 id="试问：如果js设计为多线程那么同时修改和删除同一个dom-浏览器又该如何执行"><a href="#试问：如果js设计为多线程那么同时修改和删除同一个dom-浏览器又该如何执行" class="headerlink" title="试问：如果js设计为多线程那么同时修改和删除同一个dom 浏览器又该如何执行?"></a>试问：如果js设计为多线程那么同时修改和删除同一个dom 浏览器又该如何执行?</h5><p>JS又为何需要异步</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">9999</span>;i++)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">"我一直在执行，你却看不见"</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"Hello!"</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      <h4 id="var、let和const"><a href="#var、let和const" class="headerlink" title="var、let和const"></a>var、let和const</h4><h5 id="let-和-const-新增了块级作用域"><a href="#let-和-const-新增了块级作用域" class="headerlink" title="let 和 const 新增了块级作用域"></a>let 和 const 新增了块级作用域</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a = [];</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span></span><br><span class="line"><span class="actionscript">        a[i] = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(i);</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    a[<span class="number">0</span>](); <span class="comment">//10</span></span></span><br><span class="line"><span class="actionscript">    a[<span class="number">6</span>](); <span class="comment">//10</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>上图例子 for循环耗时会很久</p>
-<p>这意味着 用户得不到 ‘你好啊’ 的响应 就会下意识会认为浏览器卡死了 所以js必须要有异步</p>
-<p>js通过事件循环来实现异步 这也是js的运行机制</p>
-<a id="more"></a>
+<p>使用var来定义变量的时候，上面的例子会全部输出 10，要解决该问题，可以使用闭包</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a = [];</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span></span><br><span class="line"><span class="actionscript">    	a[i] = (<span class="function"><span class="keyword">function</span><span class="params">(a)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">      		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        		<span class="built_in">console</span>.log(a)</span></span><br><span class="line">      		&#125;</span><br><span class="line">    	&#125;)(i)</span><br><span class="line">	&#125; </span><br><span class="line"><span class="actionscript">	a[<span class="number">6</span>](); <span class="comment">// 6</span></span></span><br><span class="line"><span class="actionscript">	a[<span class="number">9</span>](); <span class="comment">// 9</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="二、JS的事件循环"><a href="#二、JS的事件循环" class="headerlink" title="二、JS的事件循环"></a>二、JS的事件循环</h4><h5 id="1-什么是js事件循环"><a href="#1-什么是js事件循环" class="headerlink" title="1.什么是js事件循环"></a>1.什么是js事件循环</h5><blockquote>
-<p>在浏览器中出现对应的异步模块，用来提高主线程的执行效率，程序中的异步任务会放在一个队列中，当主线程空闲时从队列中把相应的任务拿出来执行。</p>
-</blockquote>
-<h5 id="2-任务队列"><a href="#2-任务队列" class="headerlink" title="2.任务队列"></a>2.任务队列</h5><p>遇到同步任务直接执行，异步任务有两种：</p>
-<p>宏队列（macro-task）：</p>
-<blockquote>
-<p> 主要有script、setTimeout、setInterval、setImmediate、I/O、UI、rendering</p>
-</blockquote>
-<p>微队列（micro-task）：</p>
-<blockquote>
-<p>主要有promise、process.nextTick、Object.observe(已废弃)、MutationObserver(html5新特性)</p>
-</blockquote>
-<!--process.nextTick 会优先 promise 执行-->
+<p>现在，我们可以用let来解决这个问题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a = [];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span></span><br><span class="line"><span class="actionscript">      a[i] = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(i);</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    a[<span class="number">0</span>]();<span class="comment">//0</span></span></span><br><span class="line"><span class="actionscript">    a[<span class="number">6</span>](); <span class="comment">// 6</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="3-执行顺序"><a href="#3-执行顺序" class="headerlink" title="3.执行顺序"></a>3.执行顺序</h5><blockquote>
-<p>(1).    首先将 script 代码块入栈，执行 script 代码块</p>
-<p>(2).    在执行 script 代码块过程中，如果有异步任务，将其分入对应的宏队列和微队列</p>
-<p>(3).    当 script 执行完毕，会先从微队列中把所有的微队列任务拿出来执行</p>
-<p>(4).    所有的微队列任务执行完毕后，在执行宏队列的任务</p>
+<p>因为let每次循环都会生成一个新的块级作用域，内部保存着i变量的值。</p>
+<h5 id="let-和-const-不会变量提升，不允许重复定义变量，并且存在TDZ-暂时性死区"><a href="#let-和-const-不会变量提升，不允许重复定义变量，并且存在TDZ-暂时性死区" class="headerlink" title="let 和 const 不会变量提升，不允许重复定义变量，并且存在TDZ(暂时性死区)"></a>let 和 const 不会变量提升，不允许重复定义变量，并且存在TDZ(暂时性死区)</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(a);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(b);</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> a=<span class="number">0</span>; <span class="comment">// undefined</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> b=<span class="number">0</span>; <span class="comment">// ReferenceError: b is not defined</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在块级作用域中，即使不存在变量提升，它也会影响当前块级作用域，即绑定在了当前作用域。在作用域中引用外部的变量将会报错。</p>
+<h5 id="const-用来定义常量"><a href="#const-用来定义常量" class="headerlink" title="const 用来定义常量"></a>const 用来定义常量</h5><blockquote>
+<p>const 实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const 只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它指向的数据结构是不是可变的，就完全不能控制了</p>
 </blockquote>
-<p><img src="http://q5vouoe7k.bkt.clouddn.com/2019-05-02-01.webp" alt></p>
-<h5 id="4-示例代码"><a href="#4-示例代码" class="headerlink" title="4.示例代码"></a>4.示例代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand1"</span>);</span></span><br><span class="line"><span class="javascript">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand2"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand3"</span>);</span></span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">p1.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand4"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"datagrand5"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand6"</span>);</span></span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">p2.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand7"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//答案：</span></span></span><br><span class="line">datagrand1</span><br><span class="line">datagrand3</span><br><span class="line">datagrand5</span><br><span class="line">datagrand6</span><br><span class="line">datagrand4</span><br><span class="line">datagrand7</span><br><span class="line">datagrand2</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scritp</span>&gt;</span></span><br><span class="line">    const a=[1,2,3]</span><br><span class="line">    a.push(4)</span><br><span class="line">    console.log(a); //[1, 2, 3, 4]</span><br><span class="line"><span class="tag">&lt;/<span class="name">scritp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -199,7 +187,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2020/02/20/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/05/25/var%E3%80%81let%E5%92%8Cconst/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -217,10 +205,19 @@
   
   <nav class="article-nav">
     
+      <a href="/2019/06/18/CSS%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CSS优化问题
+          
+        </div>
+      </a>
     
-      <a href="/2019/04/20/MVC%E5%92%8CMVVM/" class="article-nav-link">
+    
+      <a href="/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">MVC和MVVM</div>
+        <div class="article-nav-title">JS事件循环</div>
       </a>
     
   </nav>

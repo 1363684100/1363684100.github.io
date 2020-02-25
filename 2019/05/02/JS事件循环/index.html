@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    MVC和MVVM |  SunのBlog
+    JS事件循环 |  SunのBlog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-MVC和MVVM" class="article article-type-post" itemscope
+  <article id="post-JS事件循环" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  MVC和MVVM
+  JS事件循环
 </h1>
   
 
@@ -48,12 +48,12 @@
 
     
     <div class="article-meta">
-      <a href="/2019/04/20/MVC%E5%92%8CMVVM/" class="article-date">
-  <time datetime="2019-04-20T10:18:50.000Z" itemprop="datePublished">2019-04-20</time>
+      <a href="/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time datetime="2019-05-02T11:19:49.000Z" itemprop="datePublished">2019-05-02</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/others/">others</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.4k字</span>
+            <span class="post-count">465字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -99,46 +99,37 @@
       
 
       
-      <h3 id="MVC和MVVM"><a href="#MVC和MVVM" class="headerlink" title="MVC和MVVM"></a>MVC和MVVM</h3><h4 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h4><h5 id="1-MVC是什么？"><a href="#1-MVC是什么？" class="headerlink" title="1.MVC是什么？"></a>1.MVC是什么？</h5><p>M：model - 模型层，支持数据的增删改查，</p>
-<p>V:    view - 视图层，包括前端页面(html,javascript,css)</p>
-<p>C:    controller - 控制层，处理业务，包含了路由</p>
-<p>MVC（Model View Controller），是模型(model)－视图(view)－控制器(controller)的缩写，它是一种软件设计思想和架构模式，用来将业务逻辑、数据操作、界面显示分离分别组织代码的一种软件结构设计。该设计思想于1982年提出，现在使用很广泛。不过既然说它是一种设计思想，那么也就是说，它不属于PHP语言，也不是PHP语言必须的部分。对于软件设计思想来说，没有绝对的好坏之分，主要看是否适合项目的需求。</p>
+      <h4 id="一、JS为什么设计为单线程？"><a href="#一、JS为什么设计为单线程？" class="headerlink" title="一、JS为什么设计为单线程？"></a>一、JS为什么设计为单线程？</h4><h5 id="试问：如果js设计为多线程那么同时修改和删除同一个dom-浏览器又该如何执行"><a href="#试问：如果js设计为多线程那么同时修改和删除同一个dom-浏览器又该如何执行" class="headerlink" title="试问：如果js设计为多线程那么同时修改和删除同一个dom 浏览器又该如何执行?"></a>试问：如果js设计为多线程那么同时修改和删除同一个dom 浏览器又该如何执行?</h5><p>JS又为何需要异步</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">9999</span>;i++)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">"我一直在执行，你却看不见"</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"Hello!"</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上图例子 for循环耗时会很久</p>
+<p>这意味着 用户得不到 ‘你好啊’ 的响应 就会下意识会认为浏览器卡死了 所以js必须要有异步</p>
+<p>js通过事件循环来实现异步 这也是js的运行机制</p>
 <a id="more"></a>
 
-<p>可以简单的这么理解MVC:</p>
+<h4 id="二、JS的事件循环"><a href="#二、JS的事件循环" class="headerlink" title="二、JS的事件循环"></a>二、JS的事件循环</h4><h5 id="1-什么是js事件循环"><a href="#1-什么是js事件循环" class="headerlink" title="1.什么是js事件循环"></a>1.什么是js事件循环</h5><blockquote>
+<p>在浏览器中出现对应的异步模块，用来提高主线程的执行效率，程序中的异步任务会放在一个队列中，当主线程空闲时从队列中把相应的任务拿出来执行。</p>
+</blockquote>
+<h5 id="2-任务队列"><a href="#2-任务队列" class="headerlink" title="2.任务队列"></a>2.任务队列</h5><p>遇到同步任务直接执行，异步任务有两种：</p>
+<p>宏队列（macro-task）：</p>
 <blockquote>
-<p>比如，一个人去饭店吃饭，桌子就像视图（View），用户可以趴在桌子上点菜，另外，菜做好后可以放到桌子上。各个做菜师傅就像模型（Model），比如有的师傅做信阳菜，有的师傅做湘菜，有的做粤菜，他们各自负责一类菜怎么炒，什么时候该在菜里放什么调料，该用什么火候等。控制器（Controller）就像传菜员，他可以接收用户的菜单，然后把根据菜单需求，归类分解成多个小需求，然后把这些需求分配给不同的师傅去做，等做菜师傅把菜做好，他再把这些菜端到各自的餐桌上。</p>
+<p> 主要有script、setTimeout、setInterval、setImmediate、I/O、UI、rendering</p>
 </blockquote>
-<p><img src="http://q5vouoe7k.bkt.clouddn.com/mvc.png" alt></p>
-<h5 id="2-MVC模式的优缺点"><a href="#2-MVC模式的优缺点" class="headerlink" title="2.MVC模式的优缺点"></a>2.MVC模式的优缺点</h5><p>优点：    </p>
+<p>微队列（micro-task）：</p>
 <blockquote>
-<p>1、<strong>分工明确</strong>（开发人员可以只关注整个结构中的其中某一层 ）；</p>
-<p>2、<strong>松耦合</strong>（可以降低层与层之间的依赖）;</p>
-<p>3、<strong>复用性高</strong>（利于各层逻辑的复用）；</p>
-<p>4、<strong>有利于标准化</strong>（有利于通过工程化、工具化产生管理程序代码）；</p>
+<p>主要有promise、process.nextTick、Object.observe(已废弃)、MutationObserver(html5新特性)</p>
 </blockquote>
-<p>缺点：</p>
-<blockquote>
-<p>1、有时会导致级联的修改。这种修改尤其体现在自上而下的方向。如果在表示层中需要增加一个功能，为保证其设计符合分层式结构，可能需要在相应的业务逻辑层和数据访问层中都增加相应的代码。<br>2、降低了系统的性能。这是不言而喻的。如果不采用分层式结构，很多业务可以直接造访数据库，以此获取相应的数据，如今却必须通过中间层来完成。</p>
-<p>3、由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。</p>
-<p>4、MVC并不适合小型甚至中等规模的应用程序，花费大量时间将MVC应用到规模并不是很大的应用程序通常会得不偿失。</p>
+<!--process.nextTick 会优先 promise 执行-->
+
+<h5 id="3-执行顺序"><a href="#3-执行顺序" class="headerlink" title="3.执行顺序"></a>3.执行顺序</h5><blockquote>
+<p>(1).    首先将 script 代码块入栈，执行 script 代码块</p>
+<p>(2).    在执行 script 代码块过程中，如果有异步任务，将其分入对应的宏队列和微队列</p>
+<p>(3).    当 script 执行完毕，会先从微队列中把所有的微队列任务拿出来执行</p>
+<p>(4).    所有的微队列任务执行完毕后，在执行宏队列的任务</p>
 </blockquote>
-<h4 id="二、MVVM"><a href="#二、MVVM" class="headerlink" title="二、MVVM"></a>二、MVVM</h4><h5 id="1-MVVM是什么？"><a href="#1-MVVM是什么？" class="headerlink" title="1.MVVM是什么？"></a>1.MVVM是什么？</h5><blockquote>
-<p>MVVM是 Model-View-ViewModel 的简写，MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想.</p>
-<p>在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel.ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回Model，View 和 Model 之间的同步工作完全是自动的，无需人为干涉（由viewModel完成）</p>
-<p>因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
-</blockquote>
-<p><img src="http://q5vouoe7k.bkt.clouddn.com/mvvm.png" alt></p>
-<h5 id="2-MVVM的优缺点"><a href="#2-MVVM的优缺点" class="headerlink" title="2.MVVM的优缺点"></a>2.MVVM的优缺点</h5><blockquote>
-<p>1、低耦合：MVVM模式中，数据是独立于UI的，ViewModel只负责处理和提供数据，UI想怎么处理数据都由UI自己决定，ViewModel不涉及任何和UI相关的事，即使控件改变（input换成p）,ViewModel几乎不需要更改任何代码，专注自己的数据处理就可以了</p>
-<p>2.自动同步数据:ViewModel通过双向数据绑定把View层和Model层连接了起来，View和Model这两者可以自动同步。程序员不需要手动操作DOM, 不需要关注数据状态的同步问题，MVVM 统一管理了复杂的数据状态维护</p>
-<p>3、可重用性：你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。</p>
-<p>4、独立开发：开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。</p>
-<p>5、可测试：ViewModel里面是数据和业务逻辑，View中关注的是UI，这样的做测试是很方便的，完全没有彼此的依赖，不管是UI的单元测试还是业务逻辑的单元测试，都是低耦合的</p>
-</blockquote>
-<h4 id="三、MVC和MVVM的区别"><a href="#三、MVC和MVVM的区别" class="headerlink" title="三、MVC和MVVM的区别"></a>三、MVC和MVVM的区别</h4><blockquote>
-<p>mvc 和 mvvm 其实区别并不大。都是一种设计思想，主要区别如下：<br>1.mvc 中 Controller演变成 mvvm 中的 viewModel<br>2.mvvm 通过数据来驱动视图层的显示而不是节点操作。<br>3.mvc中Model和View是可以直接打交道的，造成Model层和View层之间的耦合度高。而mvvm中Model和View不直接交互，而是通过中间桥梁ViewModel来同步<br>4.mvvm主要解决了:mvc中大量的DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。</p>
-</blockquote>
+<p><img src="http://q5vouoe7k.bkt.clouddn.com/2019-05-02-01.webp" alt></p>
+<h5 id="4-示例代码"><a href="#4-示例代码" class="headerlink" title="4.示例代码"></a>4.示例代码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand1"</span>);</span></span><br><span class="line"><span class="javascript">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand2"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand3"</span>);</span></span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">p1.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand4"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"datagrand5"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand6"</span>);</span></span><br><span class="line">    resolve();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">p2.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"datagrand7"</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//答案：</span></span></span><br><span class="line">datagrand1</span><br><span class="line">datagrand3</span><br><span class="line">datagrand5</span><br><span class="line">datagrand6</span><br><span class="line">datagrand4</span><br><span class="line">datagrand7</span><br><span class="line">datagrand2</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 
       
       <!-- reward -->
@@ -208,14 +199,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/04/20/MVC%E5%92%8CMVVM/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1363684100.github.io/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/" rel="tag">others</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
 
 
     </footer>
@@ -226,19 +217,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/05/02/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-nav-link">
+      <a href="/2019/05/25/var%E3%80%81let%E5%92%8Cconst/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            JS事件循环
+            var、let和const
           
         </div>
       </a>
     
     
-      <a href="/2019/04/08/CSS%E9%AB%98%E5%BA%A6%E5%9D%8D%E5%A1%8C/" class="article-nav-link">
+      <a href="/2019/04/20/MVC%E5%92%8CMVVM/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CSS高度坍塌</div>
+        <div class="article-nav-title">MVC和MVVM</div>
       </a>
     
   </nav>
